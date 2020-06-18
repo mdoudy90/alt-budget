@@ -7,14 +7,17 @@ module.exports = {
   },
 
   logUserIn: (req, res) => {
+    // req.get('loginData')
     res.send('data')
   },
 
   updateUserData: (req, res) => {
+    // req.params.username -- might need body-parser url encoded
     res.sendStatus(201);
   },
 
   getProductAlternatives: (req, res) => {
+    // req.get('preferences')
     res.send('products')
   },
 }

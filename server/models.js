@@ -1,6 +1,5 @@
 const query = require('../db/models');
-const axios = require('axios');
-const { API_KEY } = require('../config');
+const axiosHelpers = require('./axiosHelpers');
 
 module.exports = {
   dbCreateNewUser: (data) => {
@@ -16,6 +15,6 @@ module.exports = {
   },
 
   apiGetProductAlternatives: (data) => {
-    // use axios
+    // use axiosHelpers
   },
 }
