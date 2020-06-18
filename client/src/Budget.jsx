@@ -36,9 +36,9 @@ class Budget extends React.Component {
     return (
       <div className="budgetform">Let's create a budget!
         <form>
-          <label>
-            <input type="text" onChange={() => this.handleChange}></input>
-          </label>
+
+          <input type="text" onChange={() => this.handleChange}></input>
+
         </form>
       </div>
     );
