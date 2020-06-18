@@ -2,3 +2,39 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.navbar {
+  float:right;
+}
+
+.nav{
+  background-color: darkblue;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 7px;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.nav:hover {
+  background-color: purple;
+  cursor: pointer;
+}
+
+.login {
+  border: solid 2px;
+  border-radius: 5px;
+  margin: 3%;
+  padding: 2%;
+  width: 50%;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  transform: translate(-40%, -30%);
+}
+
+.budgetform {
+  top: 20%;
+  left: 20%;
+  transform: translate(-40%, -30%);
+}
