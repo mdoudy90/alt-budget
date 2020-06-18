@@ -8,7 +8,8 @@ const { User } = require('./connection');
 //   password: 'password',
 //   firstName: 'Michael',
 //   lastName: 'Doudy',
-//   budget: {1:'test'},
+//   transactions: [],
+//   budgetGoals: {},
 //   preferences: {},
 //   wishlist: [],
 // });
