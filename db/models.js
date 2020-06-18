@@ -1,17 +1,15 @@
 const { User } = require('./connection');
 
-// Test User
-
-// const user1 = new User({
-//   email: 'michael.doudy@gmail.com',
-//   username: 'mdoudy',
-//   password: 'password',
-//   firstName: 'Michael',
-//   lastName: 'Doudy',
-//   transactions: [],
-//   budgetGoals: {},
-//   preferences: {},
-//   wishlist: [],
-// });
-
-// user1.save();
+module.exports = {
+  createNewUser: (data) => {
+    const newUser = new User(data);
+    return newUser.save();
+  },
+  fetchUserData: (data) => {
+    return User.find(data);
+  },
+  updateUserData: (data) => {
+    const filter = { username: data.username };
+    return User.findOneAndUpdate(filter, data).exec();
+  }
+}
