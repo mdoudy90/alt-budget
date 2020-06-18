@@ -31,7 +31,7 @@ class Login extends React.Component {
           <label>Password:{'  '}
             <input name='password' type='text' onChange={this.handleChange} />
           </label>
-          <button onClick={() => this.sendLogin()}>Submit</button>
+          <button onClick={(e) => this.props.sendLogin(e, this.state.username, this.state.password)}>Submit</button>
         </form>
       </div>
     )

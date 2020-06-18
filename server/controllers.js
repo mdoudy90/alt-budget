@@ -17,6 +17,9 @@ module.exports = {
   logUserIn: (req, res) => {
     let userData = JSON.parse(req.get('userData'));
 
+    console.log(userData);
+
+
     models.dbLogUserIn(userData)
       .then((data) => {
         if (!data.length) {

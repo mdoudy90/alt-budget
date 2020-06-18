@@ -11,7 +11,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       view: "signup",
-      loggedIn: true,
+      loggedIn: false,
+      userData: {},
     };
     this.sendLogin = this.sendLogin.bind(this);
     this.changeView = this.changeView.bind(this);
@@ -30,16 +31,18 @@ class App extends React.Component {
     }
   }
 
-  sendLogin() {
-    axios.post('/users', {
-      params: {
-        username: this.state.username,
-        password: this.state.password
-      }
-    })
-    .then(() => {
+
+  sendLogin(e, username, password) {
+
+    e.preventDefault();
+    let userData = JSON.stringify({ username, password });
+
+    axios.get('/users', { headers: { userData } })
+    .then(({data}) => {
       this.setState({
-        loggedIn: true
+        loggedIn: true,
+        userData: data[0],
+        view: "home",
       })
     })
     .catch(err => {

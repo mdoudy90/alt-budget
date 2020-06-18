@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -15,14 +16,7 @@ class SignUp extends React.Component {
   }
 
   addUser() {
-    //axios.post('/users', {
-    // params: {
-      // email: this.state.email,
-      // username: this.state.username,
-      // password: this.state.password,
-      // firstName: this.state.firstName,
-      // lastName: this.state.lastName,
-    // })
+    axios.post('/users', this.state);
   }
 
   handleChange() {
@@ -42,25 +36,25 @@ class SignUp extends React.Component {
         <form>
           <label>
             Username:{'  '}
-            <input name="username" type="text" value='username' onChange={this.handleChange} />
+            <input name="username" type="text" value={this.state.username} onChange={this.handleChange} />
           </label>{'    '}
           <label><br/>
             Password:{'  '}
-            <input name="password" type="text" value='password' onChange={this.handleChange} />
+            <input name="password" type="text" value={this.state.password} onChange={this.handleChange} />
           </label>
           <label><br/><br/>
             E-Mail:{'  '}
-            <input name="email" type="text" value='email' onChange={this.handleChange} />
+            <input name="email" type="text" value={this.state.email} onChange={this.handleChange} />
           </label>
           <label><br/><br/>
             First Name:{'  '}
-            <input name="firstName" type="text" value='firstName' onChange={this.handleChange} />
+            <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleChange} />
           </label>
           <label><br/>
             Last Name:{'  '}
-            <input name="lastName" type="text" value='lastName' onChange={this.handleChange} />
+            <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleChange} />
           </label><br/><br/>
-          <button onClick={() => this.addUser}>Submit</button>
+          <button onClick={this.addUser}>Submit</button>
         </form>
       </div>
     );
