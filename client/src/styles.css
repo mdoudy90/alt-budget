@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+a:link {
+  color: rgb(53, 53, 53);
+}
+
 .navbar {
   border: 1px solid rgb(0, 0, 33);
   background-color: rgb(0, 0, 33);
@@ -19,27 +23,99 @@ body {
   padding-top: 10px;
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
 }
 
 .navbar div:hover {
   color: rgb(211, 211, 211);
 }
 
-.login-form {
-  border: 1px solid #000;
+.user-form {
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 5px;
   width: 400px;
   display: grid;
+  margin: 30px auto;
+}
+
+.signup-form {
+  grid-template-rows: 1fr 70px 70px 70px 70px 70px 70px;
+}
+
+.login-form {
   grid-template-rows: 1fr 70px 70px 70px;
-  margin: 5px auto;
 }
 
-.login-form input,
-.login-form button {
+.expense-form {
+  grid-template-rows: 1fr 70px 70px 70px 70px;
+}
+
+.user-form h2 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-form input,
+.user-form button {
   margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
 }
 
-.login-form button {
+.user-form input {
+  background-color: rgb(240, 240, 240);
+  padding: 0 10px;
+}
+
+.user-form button {
   cursor: pointer;
+  background-color: rgb(39, 0, 131);
+  color: #fff;
+}
+
+.user-form button:hover {
+  background-color: rgb(55, 17, 146);
+}
+
+.component-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.component {
+  border-radius: 5px;
+  width: 400px;
+  height: 350px;
+  border: 1px solid rgb(190, 190, 190);
+  margin: 30px auto;
+}
+
+.component h2 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.comparison-component {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 200px;
+}
+
+.comparison-component div {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.comparison-component img {
+  height: 200px;
+}
+
+.vs-sign {
+  font-weight: bold;
+  color: rgb(39, 0, 131);
 }
 
 /* .navbar {
@@ -73,9 +149,11 @@ body {
 } */
 
 .preferences-container {
+  margin: 30px auto;
+  width: 610px;
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns: 180px 180px 180px;
+  grid-template-rows: 180px 180px 180px;
 }
 
 .preferences-container div {
@@ -83,20 +161,20 @@ body {
   background-color: rgb(0, 0, 33);
   border-radius: 5px;
   cursor: pointer;
-  padding-top: 80px;
-  font-size: 25px;
+  padding-top: 65px;
+  font-size: 22px;
   text-align: center;
   margin: 2px;
   color: #fff;
 }
 
 .preferences-container div:hover {
-  border: 1px solid rgb(0, 0, 100);
-  background-color: rgb(0, 0, 100);
+  border: 1px solid rgb(39, 0, 131);
+  background-color: rgb(39, 0, 131);
   transform: scale(1.01);
 }
 
 .preference-selected {
-  border: 1px solid rgb(39, 0, 131);
-  background-color: rgb(39, 0, 131);
+  border: 1px solid rgb(55, 0, 184);
+  background-color: rgb(55, 0, 184);
 }

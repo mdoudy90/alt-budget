@@ -3,17 +3,17 @@ import Chart from "react-google-charts";
 
 const PieChart = ({ chartData }) => {
   return (
-    <Chart
-      width={'700px'}
-      height={'500px'}
-      chartType="PieChart"
-      loader={<div>Loading Chart</div>}
-      data={ chartData }
-      options={{
-        title: 'Top Spending Categories',
-      }}
-      rootProps={{ 'data-testid': '1' }}
-    />
+    <div className = 'component'>
+      <h2>TOP EXPENSES</h2>
+      <Chart
+        width={'380px'}
+        height={'230px'}
+        chartType="PieChart"
+        loader={<div style={{paddingLeft: '15px'}}>Loading...</div>}
+        data={ chartData }
+        rootProps={{ 'data-testid': '1' }}
+      />
+    </div>
   );
 }
 

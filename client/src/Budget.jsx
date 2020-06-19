@@ -35,7 +35,8 @@ class Budget extends React.Component {
     this.setState({ form: { ...this.state.form, ...{[name]: value} } });
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     Promise.resolve(this.props.addTransaction(this.state.form))
       .then(this.props.getUserData)
       .then(this.resetFormState)
@@ -61,11 +62,9 @@ class Budget extends React.Component {
 
   render() {
     return (
-      <>
-      <div className="budgetform">
-        Tell us about your purchase:
-        <form>
-          <label>
+      <div className='component-container'>
+        <form className="user-form expense-form">
+          <h2>EXPENSE TRACKER</h2>
             <input
               name="Description"
               type="text"
@@ -73,8 +72,6 @@ class Budget extends React.Component {
               value={this.state.form.Description}
               onChange={this.handleChange}
             />
-          </label>
-          <label>
             <input
               name="Amount"
               type="number"
@@ -82,7 +79,6 @@ class Budget extends React.Component {
               value={this.state.form.Amount}
               onChange={this.handleChange}
             />
-          </label>
           <input type="text" list="categories" name="Category" placeholder='Category' value={this.state.form.Category} onChange={this.handleChange} />
           <datalist id="categories">
             <option>Groceries</option>
@@ -94,16 +90,15 @@ class Budget extends React.Component {
             <option>Rent/Utilities</option>
             <option>Miscellaneous</option>
           </datalist>
-        </form>
         <button
           onClick={this.handleClick}
         >
           Submit
         </button>
-      </div>
+        </form>
       <PieChart chartData = { this.state.chartData }/>
       <Comparison preferences = {this.props.preferences} badSpending = { dataParser(this.props.transactions, 'Alcohol & Bars') }/>
-      </>
+      </div>
     );
   }
 }

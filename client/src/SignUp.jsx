@@ -30,67 +30,45 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div className="signup">
-        <h1>Welcome to Alt-Budget!</h1>
-        <h2>Please select a username and password:</h2>
-        <form>
-          <label>
-            Username:{"  "}
+        <form className='user-form signup-form'>
+        <h2>USER SIGN UP</h2>
             <input
               name="username"
               type="text"
+              placeholder='Username'
               value={this.state.username}
               onChange={this.handleChange}
             />
-          </label>
-          {"    "}
-          <label>
-            <br />
-            Password:{"  "}
             <input
               name="password"
               type="text"
+              placeholder='Password'
               value={this.state.password}
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            <br />
-            <br />
-            E-Mail:{"  "}
             <input
               name="email"
               type="text"
+              placeholder='Email'
               value={this.state.email}
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            <br />
-            <br />
-            First Name:{"  "}
             <input
               name="firstName"
               type="text"
+              placeholder='First name'
               value={this.state.firstName}
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            <br />
-            Last Name:{"  "}
             <input
               name="lastName"
               type="text"
+              placeholder='Last name'
               value={this.state.lastName}
               onChange={this.handleChange}
             />
-          </label>
-          <br />
-          <br />
           <button onClick={this.addUser}>Submit</button>
         </form>
-      </div>
     );
   }
 }

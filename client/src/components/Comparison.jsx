@@ -32,16 +32,17 @@ class Comparison extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'component'>
+        <h2>ALTERNATIVE CHOICE</h2>
         {
         this.state.isFetching ?
-          <div>Loading...</div> :
-          <div>
-            <p>Spent ${this.props.badSpending} on Alcohol & Bars</p>
-            <div>Instead, could have bought</div>
-            <div><img src={`${this.state.altProductData.Images[0].url_fullxfull}`} style={{height: '200px'}}/></div>
-            <div>{ `$${this.state.altProductData.price}` }</div>
-            <div> <a href={`${this.state.altProductData.url}`}>{ `${this.state.altProductData.title.split('').slice(0,30).join('')}...` }</a></div>
+          <div style={{paddingLeft: '15px'}}>Loading...</div> :
+          <div className='comparison-component'>
+            <div>${this.props.badSpending} on Alcohol & Bars</div>
+            <div><span className = 'vs-sign'>VS</span></div>
+            <div>{ `$${this.state.altProductData.price}` } on <a href={`${this.state.altProductData.url}`}>{ `${this.state.altProductData.title.split('').slice(0,30).join('')}...` }</a>
+            </div>
+            <div><a href={`${this.state.altProductData.url}`}><img src={`${this.state.altProductData.Images[0].url_fullxfull}`}/></a></div>
           </div>
         }
       </div>

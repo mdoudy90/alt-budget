@@ -150,7 +150,7 @@ class App extends React.Component {
 
   logout() {
     this.setState({
-      view: "home",
+      view: "login",
       loggedIn: false,
       userData: {},
     });
@@ -160,21 +160,21 @@ class App extends React.Component {
     return (
       <div>
         <div className="navbar">
-          {this.state.loggedIn && <div className="home nav" onClick={() => this.changeView("home")}>
+          {this.state.loggedIn && <div className="home nav" onClick={() => this.changeView("budget")}>
             Home
           </div>}
-          {this.state.loggedIn && <div
+          {/* {this.state.loggedIn && <div
             className="budget nav"
             onClick={() => this.changeView("budget")}
           >
             Budget
-          </div>}
-          {this.state.loggedIn && <div
+          </div>} */}
+          {/* {this.state.loggedIn && <div
             className="wishlist nav"
             onClick={() => this.changeView("wishlist")}
           >
             Wishlist
-          </div>}
+          </div>} */}
           {this.state.loggedIn && <div
             className="preferences nav"
             onClick={() => this.changeView("preferences")}
