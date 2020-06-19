@@ -4,6 +4,45 @@ body {
 }
 
 .navbar {
+  border: 1px solid rgb(0, 0, 33);
+  background-color: rgb(0, 0, 33);
+  display: grid;
+  grid-template-rows: 40px;
+  grid-template-columns: auto;
+  justify-content: end;
+}
+
+.navbar div {
+  width: 100px;
+  grid-row: 1;
+  color: #fff;
+  padding-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navbar div:hover {
+  color: rgb(211, 211, 211);
+}
+
+.login-form {
+  border: 1px solid #000;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 1fr 70px 70px 70px;
+  margin: 5px auto;
+}
+
+.login-form input,
+.login-form button {
+  margin: 10px;
+}
+
+.login-form button {
+  cursor: pointer;
+}
+
+/* .navbar {
   float: right;
 }
 
@@ -31,7 +70,7 @@ body {
   top: 20%;
   left: 20%;
   transform: translate(-40%, -30%);
-}
+} */
 
 .preferences-container {
   display: grid;

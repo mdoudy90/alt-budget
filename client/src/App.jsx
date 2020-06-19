@@ -130,20 +130,20 @@ class App extends React.Component {
     const isLoggedIn = this.state.loggedIn;
     if (isLoggedIn) {
       return (
-        <span
+        <div
           className="logout nav"
           onClick={() => {
             this.logout();
           }}
         >
           Logout
-        </span>
+        </div>
       );
     } else {
       return (
-        <span className="signup nav" onClick={() => this.changeView("signup")}>
+        <div className="signup nav" onClick={() => this.changeView("signup")}>
           Sign Up
-        </span>
+        </div>
       );
     }
   }
@@ -160,27 +160,27 @@ class App extends React.Component {
     return (
       <div>
         <div className="navbar">
-          {this.state.loggedIn && <span className="home nav" onClick={() => this.changeView("home")}>
+          {this.state.loggedIn && <div className="home nav" onClick={() => this.changeView("home")}>
             Home
-          </span>}
-          {this.state.loggedIn && <span
+          </div>}
+          {this.state.loggedIn && <div
             className="budget nav"
             onClick={() => this.changeView("budget")}
           >
             Budget
-          </span>}
-          {this.state.loggedIn && <span
+          </div>}
+          {this.state.loggedIn && <div
             className="wishlist nav"
             onClick={() => this.changeView("wishlist")}
           >
             Wishlist
-          </span>}
-          {this.state.loggedIn && <span
+          </div>}
+          {this.state.loggedIn && <div
             className="preferences nav"
             onClick={() => this.changeView("preferences")}
           >
             Preferences
-          </span>}
+          </div>}
           {this.logoutButton()}
         </div>
         <div>{this.renderView()}</div>
