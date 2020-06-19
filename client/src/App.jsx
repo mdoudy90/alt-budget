@@ -2,7 +2,7 @@ import React from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import Budget from "./Budget";
-import Preferences from "./Preferences";
+import Preferences from "./components/Preferences";
 import Wishlist from "./Wishlist";
 import axios from "axios";
 import Home from './Home'
@@ -18,7 +18,9 @@ class App extends React.Component {
     this.sendLogin = this.sendLogin.bind(this);
     this.changeView = this.changeView.bind(this);
     this.logout = this.logout.bind(this);
-    this.getBudget = this.getBudget.bind(this);
+    this.getUserData = this.getUserData.bind(this);
+    this.addTransaction = this.addTransaction.bind(this);
+    this.addPreference = this.addPreference.bind(this);
   }
 
   componentDidMount() {
@@ -52,14 +54,13 @@ class App extends React.Component {
       });
   }
 
-  getBudget() {
+  getUserData() {
+    let userData = JSON.stringify({ username: this.state.userData.username });
     axios
-      .put("users/:username", {
-        params: {},
-      })
-      .then((data) => {
+      .get("/users", { headers: { userData } })
+      .then(({data}) => {
         this.setState({
-          userData: data,
+          userData: data[0],
         });
       })
       .catch((err) => {
@@ -68,14 +69,26 @@ class App extends React.Component {
   }
 
   addTransaction(data) {
-    axios.put('/users:username', data
+    let newTransactionData = { transactions: [ ...this.state.userData.transactions, data ] };
+    axios.put(`/users/${this.state.userData.username}`, newTransactionData
     )
     .then(() => {
-      this.getBudget()
+      this.getUserData()
     })
     .catch(err => {
       console.error(err);
-      res.sendStatus(400);
+    })
+  }
+
+  addPreference(event) {
+    let newPrefs = { preferences: [ ...this.state.userData.preferences, event.target.getAttribute('value') ] };
+    axios.put(`/users/${this.state.userData.username}`, newPrefs
+    )
+    .then(() => {
+      this.getUserData()
+    })
+    .catch(err => {
+      console.error(err);
     })
   }
 
@@ -98,13 +111,17 @@ class App extends React.Component {
         return <Login sendLogin={this.sendLogin} />;
       }
       case "preferences": {
-        return <Preferences />;
+        return <Preferences addPreference = { this.addPreference }/>;
       }
       case "wishlist": {
         return <Wishlist />;
       }
       case "budget": {
-        return <Budget getBudget={this.getBudget} addTransaction={this.addTransaction} transaction={this.state.userData.transactions}/>;
+        return <Budget
+          getUserData={this.getUserData}
+          addTransaction={this.addTransaction}
+          transactions={this.state.userData.transactions}
+          preferences = {this.state.userData.preferences} />;
       }
     }
   }
@@ -132,9 +149,10 @@ class App extends React.Component {
   }
 
   logout() {
-    //dump session;
     this.setState({
-      view: "budget",
+      view: "home",
+      loggedIn: false,
+      userData: {},
     });
   }
 
@@ -142,27 +160,27 @@ class App extends React.Component {
     return (
       <div>
         <div className="navbar">
-          <span className="home nav" onClick={() => this.changeView("home")}>
+          {this.state.loggedIn && <span className="home nav" onClick={() => this.changeView("home")}>
             Home
-          </span>
-          <span
+          </span>}
+          {this.state.loggedIn && <span
             className="budget nav"
             onClick={() => this.changeView("budget")}
           >
             Budget
-          </span>
-          <span
+          </span>}
+          {this.state.loggedIn && <span
             className="wishlist nav"
             onClick={() => this.changeView("wishlist")}
           >
             Wishlist
-          </span>
-          <span
+          </span>}
+          {this.state.loggedIn && <span
             className="preferences nav"
             onClick={() => this.changeView("preferences")}
           >
             Preferences
-          </span>
+          </span>}
           {this.logoutButton()}
         </div>
         <div>{this.renderView()}</div>

@@ -10,7 +10,7 @@ const PieChart = ({ chartData }) => {
       loader={<div>Loading Chart</div>}
       data={ chartData }
       options={{
-        title: 'Top 10 Spending Categories',
+        title: 'Top Spending Categories',
       }}
       rootProps={{ 'data-testid': '1' }}
     />

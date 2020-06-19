@@ -1,7 +1,6 @@
-const dataParser = (data) => {
+const dataParser = (transactions, category) => {
 
   let categoryData = {};
-  let transactions = data.transactions;
 
   for (let key in transactions) {
     if (transactions[key]['Transaction Type'] === 'debit') {
@@ -13,8 +12,11 @@ const dataParser = (data) => {
     }
   }
 
-  let sortedData = Object.entries(categoryData).sort((a, b) => b[1] - a[1]);
+  if (category) {
+    return categoryData[category];
+  }
 
+  let sortedData = Object.entries(categoryData).sort((a, b) => b[1] - a[1]);
   return sortedData.slice(0, 10);
 }
 

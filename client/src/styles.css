@@ -33,6 +33,31 @@ body {
   transform: translate(-40%, -30%);
 }
 
-.budgetform {
+.preferences-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+}
 
+.preferences-container div {
+  border: 1px solid rgb(0, 0, 33);
+  background-color: rgb(0, 0, 33);
+  border-radius: 5px;
+  cursor: pointer;
+  padding-top: 80px;
+  font-size: 25px;
+  text-align: center;
+  margin: 2px;
+  color: #fff;
+}
+
+.preferences-container div:hover {
+  border: 1px solid rgb(0, 0, 100);
+  background-color: rgb(0, 0, 100);
+  transform: scale(1.01);
+}
+
+.preference-selected {
+  border: 1px solid rgb(39, 0, 131);
+  background-color: rgb(39, 0, 131);
 }

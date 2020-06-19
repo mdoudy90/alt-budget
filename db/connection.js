@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   transactions: [],
   budgetGoals: {},
-  preferences: {},
+  preferences: [],
   wishlist: [],
 },
 { timestamps: true });
