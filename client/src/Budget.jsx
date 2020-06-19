@@ -37,12 +37,12 @@ class Budget extends React.Component {
 
   handleClick() {
     Promise.resolve(this.props.addTransaction(this.state.form))
-      .then(this.props.getUserData)
       .then(this.resetFormState)
-      .then(this.setChartData);
+      .then(setTimeout(this.setChartData, 500));
   }
 
   setChartData() {
+    console.log('setting data')
     Promise.resolve(dataParser(this.props.transactions)).then((chartData) => {
       this.setState({chartData: [['Category', 'Transactions'], ...chartData]});
     });
