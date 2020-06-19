@@ -13,3 +13,5 @@ const Preferences = (props) => {
 
 export default Preferences;
 
+//refactor as stateful component, add isClicked value to state; toggle isClicked when saved to db/deleted from db
+
